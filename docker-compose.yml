@@ -5,6 +5,7 @@ services:
     command: python /code/manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
+    user: 1000:1000 # Add this line
     ports:
       - 8000:8000
     depends_on:
@@ -16,4 +17,5 @@ services:
     environment:
       - "POSTGRES_HOST_AUTH_METHOD=trust"
 volumes:
-    postgres_data:
+  postgres_data:
+
