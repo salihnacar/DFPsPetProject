@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "accounts.apps.AccountsConfig", # new
     "pages.apps.PagesConfig", # new
+    "books.apps.BooksConfig", # new
+    
+
     "crispy_bootstrap5", # new
     "crispy_forms", # new
     "allauth", # new
