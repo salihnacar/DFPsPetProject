@@ -1,14 +1,16 @@
-from django.shortcuts import render
-
+from django.contrib.auth.mixins import LoginRequiredMixin ,PermissionRequiredMixin
 from django.views.generic import ListView, DetailView
-
 from .models import Book
 
-class BookListView(ListView):
-    model = Book
-    template_name = "books/book_list.html"
 
-class BookDetailView(DetailView):
-    model = Book    
-    template_name = "books/book_detail.html"
-
+class BookListView(LoginRequiredMixin,PermissionRequiredMixin, ListView): # new
+        model = Book
+        context_object_name = "book_list"
+        template_name = "books/book_list.html"
+        login_url = "account_login" # new
+        permission_required = "books.special_status" # new
+class BookDetailView(LoginRequiredMixin, DetailView): # new
+        model = Book
+        context_object_name = "book"
+        template_name = "books/book_detail.html"
+        login_url = "account_login" # new
