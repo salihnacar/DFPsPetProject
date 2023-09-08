@@ -1,2 +1,2 @@
 # DFPsPetProject
-implementation of  Django For Professionals examples and  projects
+implementation of  Django For Professional's examples and  project
